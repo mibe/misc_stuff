@@ -2,6 +2,7 @@
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
   <ShortName>GoTo HTTP</ShortName>
   <Url type="text/html" method="get" template="http://{searchTerms}" />
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://github.com/mibe/misc_stuff/raw/master/OpenSearch/GoTo-HTTP.xml" />
   <Query role="example" searchTerms="example.com" />
   <Developer>Michael Bemmerl</Developer>
   <SyndicationRight>open</SyndicationRight>
