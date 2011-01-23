@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
   <ShortName>twinmail.de</ShortName>
-  <Description>Halten Sie Ihr Postfach frei für die wichtigen Dinge des Lebens!</Description>
+  <Description>Halten Sie Ihr Postfach frei fÃ¼r die wichtigen Dinge des Lebens!</Description>
   <Tags>web mail free freemail spam</Tags>
   <Url type="text/html" method="get" template="http://www.twinmail.de/catalog.php?q={searchTerms}" />
   <Url type="application/opensearchdescription+xml" rel="self" template="https://github.com/mibe/misc_stuff/raw/master/OpenSearch/TwinMail.xml" />
