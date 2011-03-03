@@ -3,8 +3,8 @@
 // Copyright (C) 2011 Michael Bemmerl
 // Released under a  CC0 license (http://creativecommons.org/publicdomain/zero/1.0/)
 //
-// This function returns the duration of a Flash Video file or false, if an
-// error occurred.
+// This function returns the duration of a Flash Video file in seconds or false,
+// if an error occurred.
 
 function GetFLVDuration($file)
 {
