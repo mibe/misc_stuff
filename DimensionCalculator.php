@@ -47,8 +47,6 @@ function calculateDimension($diagonal, $aspectRatio, $addTubeDifference = FALSE)
 	return $result;
 }
 
-$result = calculateDimension(15.6, 16/9);
-
 ?>
 <html>
 <body>
