@@ -2,6 +2,7 @@
 
 // Copyright (C) 2011 Michael Bemmerl
 // Released under a  CC0 license (http://creativecommons.org/publicdomain/zero/1.0/)
+// https://github.com/mibe/misc_stuff/blob/master/DimensionCalculator.php
 
 /* This code calculates the screen size or viewable image size (VIS) of a monitor.
  * See http://en.wikipedia.org/wiki/Viewable_image_size for details of the VIS.

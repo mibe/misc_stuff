@@ -1,7 +1,8 @@
 <?php
 
 // Copyright (C) 2011 Michael Bemmerl
-// Released under a  CC0 license (http://creativecommons.org/publicdomain/zero/1.0/)
+// Released under a CC0 license (http://creativecommons.org/publicdomain/zero/1.0/)
+// https://github.com/mibe/misc_stuff/blob/master/GetFLVDuration.php
 //
 // This function returns the duration of a Flash Video file in seconds or false,
 // if an error occurred.
