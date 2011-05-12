@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>twinmail.de</ShortName>
+  <Description>Halten Sie Ihr Postfach frei für die wichtigen Dinge des Lebens!</Description>
+  <Tags>web mail free freemail spam</Tags>
+  <Url type="text/html" method="get" template="http://www.twinmail.de/catalog.php?q={searchTerms}" />
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://github.com/mibe/misc_stuff/raw/master/OpenSearch/TwinMail.xml" />
+  <LongName>TwinMail</LongName>
+  <Image height="16" width="16">data:image/x-icon;base64,R0lGODlhEAAQAKIAAAAAAP///2YzZgAA/////wAAAAAAAAAAACH5BAEAAAQALAAAAAAQABAAAAM0SLrcOjBK+aaFrmYi+sJKJ4SixpVninleekJtPIbwIjMgqX8Dc/O+Wcu0GxJyLiPSuGkkAAA7</Image>
+  <Query role="example" searchTerms="bill.kilgore" />
+  <Developer>Michael Bemmerl</Developer>
+  <SyndicationRight>open</SyndicationRight>
+  <Attribution>Searchplugin released under CC0 1.0 Universal (Public Domain Dedication)</Attribution>
+  <Language>*</Language>
+  <OutputEncoding>UTF-8</OutputEncoding>
+  <InputEncoding>UTF-8</InputEncoding>
+</OpenSearchDescription>

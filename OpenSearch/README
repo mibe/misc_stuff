@@ -1,0 +1,9 @@
+* GoTo-HTTP.xml
+
+A simple plugin which adds "http://" to the search term and jumps to this URL.
+
+
+* TwinMail.xml
+
+Query a email box on TwinMail. Only the local part of the email address is
+needed as the search term. The @twinmail.de has to be omitted.
