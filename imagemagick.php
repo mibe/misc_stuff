@@ -90,12 +90,8 @@ class ImageMagick
 
 	public function execute(&$output = NULL)
 	{
-		$params = '';
-
-		foreach($this->sequences as $sequence)
-			$params .= ' ' . $sequence;
-
-		exec($this->path . $params . ' 2>&1', $output, $return);
+		$cmd = $this->buildCommandLine();
+		exec($cmd, $output, $return);
 
 		$this->reset();
 
@@ -107,6 +103,21 @@ class ImageMagick
 		$this->sequences = array();
 		$this->subSequences = array();
 		$this->isSubSequence = FALSE;
+	}
+
+	public function getCommandLine()
+	{
+		return $this->buildCommandLine();
+	}
+
+	private function buildCommandLine()
+	{
+		$result = '';
+
+		foreach($this->sequences as $sequence)
+			$result .= ' ' . $sequence;
+
+		return $this->path . $result . ' 2>&1';
 	}
 
 	private function detectExecutable()
