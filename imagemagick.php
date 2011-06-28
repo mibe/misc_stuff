@@ -91,6 +91,9 @@ class ImageMagick
 	public function execute(&$output = NULL)
 	{
 		$cmd = $this->buildCommandLine();
+		$cmd = escapeshellcmd($cmd);
+		$cmd .= " 2>&1";
+
 		exec($cmd, $output, $return);
 
 		$this->reset();
@@ -117,7 +120,7 @@ class ImageMagick
 		foreach($this->sequences as $sequence)
 			$result .= ' ' . $sequence;
 
-		return $this->path . $result . ' 2>&1';
+		return $this->path . $result;
 	}
 
 	private function detectExecutable()
