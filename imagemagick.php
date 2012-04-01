@@ -139,7 +139,7 @@ class ImageMagick
 		}
 
 		if (PHP_OS == 'WINNT')
-			$path = getenv('ProgramFiles') . 'ImageMagick' . $file;
+			$path = getenv('ProgramFiles') . '\\ImageMagick\\' . $file;
 		else
 			$path = '/usr/bin/' . $file;
 
