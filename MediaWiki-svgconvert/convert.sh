@@ -1,23 +1,39 @@
 #!/bin/bash
-# Skript zum Konvertieren von SVGs nach PNG (mit Alpha-Kanal) inklusive
-# Größenänderung des Ausgangsmaterials.
+# Script for converting SVG files to PNG (with transparency support) by using
+# Mathieu Leplatre's static compile of librsvg & libcairo, named svgconvert.
+# After conversion, the resulting PNG will be resized for thumbnailing.
 # 
-# (C) 2010 Michael Bemmerl für chiliwiki.de
+# (C) 2010, 2012 Michael Bemmerl für chiliwiki.de
+#
+# Requirements:
+#  * ImageMagick (see CONVERT variable below)
+#  * svgconvert (see SVGCONVERT variable below)
+#    (http://blog.mathieu-leplatre.info/static-build-of-cairo-and-librsvg.html)
 #
 # Usage:
-# convert.sh Quelldatei Zieldatei Breite Höhe
+# convert.sh source target width height
 
-QUALITY=85				# Qualität für ImageMagick
-CONVERT=/usr/bin/convert		# ImageMagick binary
-SVGCONVERT=`dirname $0`/svgconvert	# SVG nach PNG Konverter
+# Quality setting for ImageMagick (used for thumbnailing)
+#
+QUALITY=85
+
+# Path to ImageMagick binary
+#
+CONVERT=/usr/bin/convert
+
+# Path to svgconvert (default to look in same directory as this script)
+#
+SVGCONVERT=`dirname $0`/svgconvert
 
 exec 2>&1
 
+# Handle missing arguments
 if [ $# -ne 4 ]; then
 	echo "Error: Missing arguments - Expecting four arguments." >&2
 	exit 1
 fi
 
+# Check arguments
 if [ ! -f $1 ]; then
 	echo "Errror: Source file \"$1\" does not exist." >&2
 	exit 2
@@ -36,6 +52,7 @@ fi
 RESIZE=$3x$4
 TMPFILE=`tempfile --suffix=.png`
 
+# Execute SVG converter
 $SVGCONVERT $1 $TMPFILE
 
 if [ $? -ne 0 ]; then
@@ -43,6 +60,7 @@ if [ $? -ne 0 ]; then
 	exit 5
 fi
 
+# Execute resizing
 $CONVERT $TMPFILE -quality $QUALITY -resize $RESIZE -alpha on $2
 
 if [ $? -ne 0 -o ! -f $2 ]; then
