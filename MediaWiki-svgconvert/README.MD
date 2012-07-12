@@ -40,3 +40,6 @@ $wgSVGConverter = "svgconverter";
 This will add a new SVG renderer named 'svgconverter', which points to
 the convert.sh script. Refer to the [MediaWiki documentation](https://www.mediawiki.org/wiki/Manual:Image_Administration#SVG)
 for more details about the different setting variables.
+
+## License
+MIT-License (see LICENSE file)

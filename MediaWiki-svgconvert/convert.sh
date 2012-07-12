@@ -12,6 +12,9 @@
 #
 # Usage:
 # convert.sh source target width height
+#
+# License:
+# MIT License (see LICENSE file)
 
 # Quality setting for ImageMagick (used for thumbnailing)
 #
