@@ -52,7 +52,7 @@ class STEPEdit(object):
     def prefix_product_name(self, prefix):
         # #7 = PRODUCT('as1','as1','',(#8));
         # Name is the second attribute
-        regex = re.compile("(^.*PRODUCT\('.*?',')(.*)(',.+\);.*$)")
+        regex = re.compile("(^.*PRODUCT\('.*?',')(.*?)(',.+\);.*$)")
         for index, line in enumerate(self.data):
             match = regex.search(line)
             if match is not None:
