@@ -19,6 +19,7 @@ parser = argparse.ArgumentParser(description="Make simple edits to STEP files.")
 parser.add_argument('file', help="Path to STEP file")
 parser.add_argument('--prefixProductId', help="Add prefix to 'id' of entity 'product'")
 parser.add_argument('--prefixProductName', help="Add prefix to 'name' of entity 'product'")
+parser.add_argument('--verbose', action='store_true', default=False, help="A little more verbose output")
 
 args = parser.parse_args()
 
@@ -46,7 +47,7 @@ class STEPEdit(object):
             if match is not None:
                 self.changed = True
                 self.data[index] = "{0}{1}{2}{3}\n".format(match.group(1), prefix, match.group(2), match.group(3))
-                print "Changed '{0}' to '{1}'".format(line, self.data[index])
+                self.print_change(match.group(2), prefix + match.group(2), line, self.data[index])
     
     def prefix_product_name(self, prefix):
         # #7 = PRODUCT('as1','as1','',(#8));
@@ -57,7 +58,13 @@ class STEPEdit(object):
             if match is not None:
                 self.changed = True
                 self.data[index] = "{0}{1}{2}{3}\n".format(match.group(1), prefix, match.group(2), match.group(3))
-                print "Changed '{0}' to '{1}'".format(line, self.data[index])
+                self.print_change(match.group(2), prefix + match.group(2), line, self.data[index])
+                
+    def print_change(self, old, new, line, newline):
+        if args.verbose:
+            print "Changed line \"{0}\" to \"{1}\"".format(line.strip(), newline.strip())
+        else:
+            print "Changed \"{0}\" to \"{1}\"".format(old, new)
         
 # Instantiate class with arguments from the command line
 instance = STEPEdit(args.file)
