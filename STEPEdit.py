@@ -13,7 +13,6 @@ Tested with Python 2.7.6
 
 import re
 import argparse
-import sys
 
 parser = argparse.ArgumentParser(description="Make simple edits to STEP files.")
 parser.add_argument('file', help="Path to STEP file")
@@ -25,8 +24,9 @@ args = parser.parse_args()
 
 class STEPEdit(object):
     
-    def __init__(self, filename):
+    def __init__(self, filename, verbose = False):
         self.filename = filename
+        self.verbose = verbose
         self.changed = None
         
         # Load file contents into memory
@@ -61,13 +61,13 @@ class STEPEdit(object):
                 self.print_change(match.group(2), prefix + match.group(2), line, self.data[index])
                 
     def print_change(self, old, new, line, newline):
-        if args.verbose:
+        if self.verbose:
             print "Changed line \"{0}\" to \"{1}\"".format(line.strip(), newline.strip())
         else:
             print "Changed \"{0}\" to \"{1}\"".format(old, new)
         
 # Instantiate class with arguments from the command line
-instance = STEPEdit(args.file)
+instance = STEPEdit(args.file, args.verbose)
 
 if args.prefixProductId is not None:
     instance.prefix_product_id(args.prefixProductId)
