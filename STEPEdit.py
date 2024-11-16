@@ -2,13 +2,13 @@
 
 """A little script to prefix the ID and name attribute of "product" entities in STEP files.
 
-Copyright: (C) 2015 Michael Bemmerl
+Copyright: (C) 2015,2024 Michael Bemmerl
 License: MIT License
 
 Requirements:
-- Python >= 2.7 (well, obviously ;-)
+- Python >= 3.8 (well, obviously ;-)
 
-Tested with Python 2.7.6
+Tested with Python 3.8.2
 """
 
 import re
@@ -33,7 +33,7 @@ class STEPEdit(object):
         with open(self.filename, 'r') as file:
             self.data = file.readlines()
         
-    def __del__(self):
+    def save(self):
         if self.changed is not None:
             with open(self.filename, 'w') as file:
                 file.writelines(self.data)
@@ -62,9 +62,9 @@ class STEPEdit(object):
                 
     def print_change(self, old, new, line, newline):
         if self.verbose:
-            print "Changed line \"{0}\" to \"{1}\"".format(line.strip(), newline.strip())
+            print("Changed line \"{0}\" to \"{1}\"".format(line.strip(), newline.strip()))
         else:
-            print "Changed \"{0}\" to \"{1}\"".format(old, new)
+            print("Changed \"{0}\" to \"{1}\"".format(old, new))
         
 # Instantiate class with arguments from the command line
 instance = STEPEdit(args.file, args.verbose)
@@ -74,5 +74,7 @@ if args.prefixProductId is not None:
 if args.prefixProductName is not None:
     instance.prefix_product_name(args.prefixProductName)
     
+instance.save()
+
 if instance.changed is None:
-    print "No changes were made to the file."
+    print("No changes were made to the file.")
